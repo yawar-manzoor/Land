@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./LAND_BANK_BE_DEV-Develop
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./LAND_BANK_FE_DEV-main
+      dockerfile: Dockerfile
+    ports:
+      - "8082:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
