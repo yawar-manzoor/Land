@@ -1,0 +1,21 @@
+
+#what was happenuing in my container when navigate to the through companentents by clicking the it was working fine but through direct roulte lile /insights/areas it was showing nginx error 404
+#for that i was using this script
+#cd /etc/nginx
+#cat nginx.conf   here i maked changes
+server {
+    listen       80;
+    server_name  localhost;
+
+    root   /usr/share/nginx/html;
+    index  index.html;
+
+    location / {
+        try_files $uri /index.html;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
